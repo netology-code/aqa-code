@@ -1,0 +1,3 @@
+amount,expected,message
+900,0,Should be 0 for amount lower than 1000
+2000,10,Should be 10 for amount = 2000
