@@ -4,7 +4,7 @@
 1. [x] [Основы автоматизации](basics/)
 1. [x] [Состояние, зависимости, CI](state/)
 1. [x] [Тестирование веб-интерфейсов](web/)
-1. [ ] [Selenide](selenide/)
+1. [x] [Selenide](selenide/)
 1. [ ] [Patterns](patterns/)
 1. [ ] [Akita](akita/)
 1. [ ] [Docker](docker/)
