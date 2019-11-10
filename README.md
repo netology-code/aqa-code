@@ -8,7 +8,7 @@
 1. [ ] [Patterns](patterns/)
 1. [x] [Akita](akita/)
 1. [X] [Docker](docker/)
-1. [ ] [SQL](sql/)
+1. [x] [SQL](sql/)
 1. [ ] [Reporting](reporting/)
 1. [ ] [Summary](summary/)
 
