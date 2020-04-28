@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         maven {
-            url "https://dl.bintray.com/alfa-laboratory/maven-releases/"
+            url 'https://dl.bintray.com/alfa-laboratory/maven-releases/'
         }
     }
 
@@ -14,7 +14,7 @@ buildscript {
 plugins {
     id 'java'
     id 'groovy'
-    id 'io.freefair.lombok' version '4.1.6'
+    id 'io.freefair.lombok' version '5.0.0'
 }
 
 apply plugin: 'ru.alfalab.cucumber-parallel-test'
@@ -35,8 +35,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'ru.alfabank.tests:akita:4.1.2'
-    testImplementation 'com.codeborne:selenide:5.3.3'
+    testImplementation 'ru.alfabank.tests:akita:4.1.3'
+    testImplementation 'com.codeborne:selenide:5.11.1'
 }
 
 test {
