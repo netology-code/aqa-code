@@ -34,7 +34,8 @@ out/
 *.rar
 
 ### Stuff ###
-.allure
+.allure/
+node_modules/
 
 ### Exclusions ###
 HELP.md
