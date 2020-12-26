@@ -12,4 +12,3 @@
 1. [ ] [Reporting](reporting/)
 1. [ ] [Summary](summary/)
 
-По всем вопросам: coursar
