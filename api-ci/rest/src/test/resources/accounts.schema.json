@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "array",
+  "default": [],
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "name",
+      "number",
+      "balance",
+      "currency"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "number": {
+        "type": "string",
+        "pattern": "^•• \\d{4}$"
+      },
+      "balance": {
+        "type": "integer",
+        "default": 0
+      },
+      "currency": {
+        "type": "string"
+      }
+    }
+  }
+}
