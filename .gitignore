@@ -33,6 +33,9 @@ out/
 *.tar.gz
 *.rar
 
+### Stuff ###
+.allure
+
 ### Exclusions ###
 HELP.md
 .gradle

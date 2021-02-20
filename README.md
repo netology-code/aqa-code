@@ -9,7 +9,6 @@
 1. [x] [BDD](bdd/)
 1. [X] [Docker](docker/)
 1. [x] [SQL](sql/)
-1. [ ] [Reporting](reporting/)
+1. [x] [Reporting](reporting/)
 1. [ ] [Summary](summary/)
 
-По всем вопросам: coursar
