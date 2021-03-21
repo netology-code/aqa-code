@@ -14,23 +14,30 @@ public class DataGenerator {
     }
 
     public static String generateDate(int shift) {
-        return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        // TODO: добавить логику для объявления переменной date и задания её значения, для генерации строки с датой
+        // Вы можете использовать класс LocalDate
+        return date;
     }
 
-    public static String generateCity() {
-        val random = new Random();
-        val cities = new String[]{"Москва", "Воронеж", "Краснодар", "Владивосток"};
-        return cities[random.nextInt(cities.length)];
+    public static String generateCity(String locale) {
+        val faker = new Faker(new Locale(locale));
+        // TODO: добавить логику для объявления переменной city и задания её значения, генерацию можно выполнить
+        //  с помощью faker, либо используя массив валидных городов
+        return city;
     }
 
     public static String generateName(String locale) {
         val faker = new Faker(new Locale(locale));
-        return faker.name().lastName() + " " + faker.name().firstName();
+        // TODO: добавить логику для объявления переменной name и задания её значения, для генерации можно
+        // использовать faker
+        return name;
     }
 
     public static String generatePhone(String locale) {
         val faker = new Faker(new Locale(locale));
-        return faker.phoneNumber().phoneNumber();
+        // TODO: добавить логику для объявления переменной phone и задания её значения, для генерации можно
+        // использовать faker
+        return phone;
     }
 
     public static class Registration {
@@ -38,7 +45,9 @@ public class DataGenerator {
         }
 
         public static UserInfo generateUser(String locale) {
-            return new UserInfo(generateCity(), generateName(locale), generatePhone(locale));
+            // TODO: добавить логику для создания пользователя user с использованием методов generateCity(locale),
+            // generateName(locale), generatePhone(locale)
+            return user;
         }
     }
 

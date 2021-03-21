@@ -24,20 +24,11 @@ class DeliveryTest {
     }
 
     @Test
-    @DisplayName("Should send valid form")
-    void shouldSuccessSendValidForm() {
+    @DisplayName("Should successful plan and replan meeting")
+    void shouldSuccessfulPlanAndReplanMeeting() {
         val validUser = DataGenerator.Registration.generateUser("ru");
-        $("[data-test-id=city] .input__control").setValue(validUser.getCity());
-        $("[data-test-id=date] .input__control")
-                .sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        val meetingDate = DataGenerator.generateDate(4);
-        $("[data-test-id=date] .input__control").setValue(meetingDate);
-        $("[data-test-id=name] .input__control").setValue(validUser.getName());
-        $("[data-test-id=phone] .input__control").setValue(validUser.getPhone());
-        $("[data-test-id=agreement]").click();
-        $(byText("Запланировать")).click();
-        $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
-        $("[data-test-id=success-notification] .notification__content")
-                .shouldHave(exactText("Встреча успешно запланирована на " + meetingDate));
+        val firstMeetingDate = DataGenerator.generateDate(4);
+        val secondMeetingDate = DataGenerator.generateDate(7);
+        // TODO: добавить логику теста в рамках которого будет выполнено планирование и перепланирование встречи
     }
 }
