@@ -29,6 +29,8 @@ class DeliveryTest {
         val validUser = DataGenerator.Registration.generateUser("ru");
         val firstMeetingDate = DataGenerator.generateDate(4);
         val secondMeetingDate = DataGenerator.generateDate(7);
-        // TODO: добавить логику теста в рамках которого будет выполнено планирование и перепланирование встречи
+        // TODO: добавить логику теста в рамках которого будет выполнено планирование и перепланирование встречи,
+        //  для заполнения полей формы можно использовать пользователя validUser и строки с датами в переменных
+        //  firstMeetingDate и secondMeetingDate
     }
 }
