@@ -27,10 +27,14 @@ class DeliveryTest {
     @DisplayName("Should successful plan and replan meeting")
     void shouldSuccessfulPlanAndReplanMeeting() {
         val validUser = DataGenerator.Registration.generateUser("ru");
-        val firstMeetingDate = DataGenerator.generateDate(4);
-        val secondMeetingDate = DataGenerator.generateDate(7);
-        // TODO: добавить логику теста в рамках которого будет выполнено планирование и перепланирование встречи,
-        //  для заполнения полей формы можно использовать пользователя validUser и строки с датами в переменных
-        //  firstMeetingDate и secondMeetingDate
+        val daysToAddForFirstMeeting = 4;
+        val firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
+        val daysToAddForSecondMeeting = 7;
+        val secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
+        // TODO: добавить логику теста в рамках которого будет выполнено планирование и перепланирование встречи.
+        // Для заполнения полей формы можно использовать пользователя validUser и строки с датами в переменных
+        // firstMeetingDate и secondMeetingDate. Можно также вызывать методы generateCity(locale),
+        // generateName(locale), generatePhone(locale) для генерации и получения в тесте соответственно города,
+        // имени и номера телефона без создания пользователя в методе generateUser(String locale) в датагенераторе
     }
 }

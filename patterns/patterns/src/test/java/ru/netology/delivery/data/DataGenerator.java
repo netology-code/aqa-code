@@ -19,21 +19,21 @@ public class DataGenerator {
         return date;
     }
 
-    private static String generateCity(Faker faker) {
+    public static String generateCity(String locale) {
         // TODO: добавить логику для объявления переменной city и задания её значения, генерацию можно выполнить
-        // с помощью faker, либо используя массив валидных городов и класс Random
+        // с помощью Faker, либо используя массив валидных городов и класс Random
         return city;
     }
 
-    private static String generateName(Faker faker) {
+    public static String generateName(String locale) {
         // TODO: добавить логику для объявления переменной name и задания её значения, для генерации можно
-        // использовать faker
+        // использовать Faker
         return name;
     }
 
-    private static String generatePhone(Faker faker) {
+    public static String generatePhone(String locale) {
         // TODO: добавить логику для объявления переменной phone и задания её значения, для генерации можно
-        // использовать faker
+        // использовать Faker
         return phone;
     }
 
@@ -42,9 +42,8 @@ public class DataGenerator {
         }
 
         public static UserInfo generateUser(String locale) {
-            val faker = new Faker(new Locale(locale));
-            // TODO: добавить логику для создания пользователя user с использованием методов generateCity(faker),
-            // generateName(faker), generatePhone(faker)
+            // TODO: добавить логику для создания пользователя user с использованием методов generateCity(locale),
+            // generateName(locale), generatePhone(locale)
             return user;
         }
     }
