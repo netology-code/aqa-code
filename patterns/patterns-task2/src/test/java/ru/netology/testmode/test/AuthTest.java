@@ -12,8 +12,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.testmode.data.DataGenerator.Registration.getRegisteredUser;
 import static ru.netology.testmode.data.DataGenerator.Registration.getUser;
-import static ru.netology.testmode.data.DataGenerator.getLogin;
-import static ru.netology.testmode.data.DataGenerator.getPassword;
+import static ru.netology.testmode.data.DataGenerator.getRandomLogin;
+import static ru.netology.testmode.data.DataGenerator.getRandomPassword;
 
 class AuthTest {
 
@@ -51,7 +51,7 @@ class AuthTest {
     @DisplayName("Should get error message if login with wrong login")
     void shouldGetErrorIfWrongLogin() {
         val registeredUser = getRegisteredUser("active");
-        val wrongLogin = getLogin();
+        val wrongLogin = getRandomLogin();
         // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
         //  логином, для заполнения поля формы "Логин" используйте переменную wrongLogin,
         //  "Пароль" - пользователя registeredUser
@@ -61,7 +61,7 @@ class AuthTest {
     @DisplayName("Should get error message if login with wrong password")
     void shouldGetErrorIfWrongPassword() {
         val registeredUser = getRegisteredUser("active");
-        val wrongPassword = getPassword();
+        val wrongPassword = getRandomPassword();
         // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
         //  паролем, для заполнения поля формы "Логин" используйте пользователя registeredUser,
         //  "Пароль" - переменную wrongPassword

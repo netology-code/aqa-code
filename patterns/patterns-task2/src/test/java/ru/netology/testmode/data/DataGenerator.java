@@ -26,22 +26,18 @@ public class DataGenerator {
     }
 
     private static void sendRequest(RegistrationDto user) {
-        given()
-                .spec(requestSpec)
-                .body(user)
-                .when()
-                .post("/api/system/users")
-                .then()
-                .statusCode(200);
+        // TODO: отправить запрос на указанный в требованиях path, передав в body запроса объект user
+        //  и не забудьте передать подготовленную спецификацию requestSpec.
+        //  Пример реализации метода показан в условии к задаче.
     }
 
-    public static String getLogin() {
+    public static String getRandomLogin() {
         // TODO: добавить логику для объявления переменной login и задания её значения, для генерации
         //  случайного логина используйте faker
         return login;
     }
 
-    public static String getPassword() {
+    public static String getRandomPassword() {
         // TODO: добавить логику для объявления переменной password и задания её значения, для генерации
         //  случайного пароля используйте faker
         return password;
@@ -52,7 +48,7 @@ public class DataGenerator {
         }
 
         public static RegistrationDto getUser(String status) {
-            // TODO: создать пользователя user используя методы getLogin(), getPassword() и параметр status
+            // TODO: создать пользователя user используя методы getRandomLogin(), getRandomPassword() и параметр status
             return user;
         }
 
