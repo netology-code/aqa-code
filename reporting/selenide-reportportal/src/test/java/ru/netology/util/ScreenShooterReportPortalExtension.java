@@ -3,7 +3,9 @@ package ru.netology.util;
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.ex.UIAssertionError;
 import com.codeborne.selenide.impl.ScreenShotLaboratory;
-import org.junit.jupiter.api.extension.*;
+import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
+import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,8 +13,8 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Optional;
 
+import static com.codeborne.selenide.Selenide.screenshot;
 import static com.codeborne.selenide.WebDriverRunner.driver;
-import static com.codeborne.selenide.ex.ErrorMessages.screenshot;
 
 /**
  * Use this class to automatically take screenshots in case of ANY errors in tests (not only Selenide errors) and send them to ReportPortal.
@@ -46,7 +48,7 @@ public class ScreenShooterReportPortalExtension implements BeforeTestExecutionCa
   @Override
   public void afterTestExecution(final ExtensionContext context) {
     if (captureSuccessfulTests) {
-      log.info(screenshot(driver()));
+      log.info(screenshot(context.getTestMethod().toString()));
     } else {
       context.getExecutionException().ifPresent(error -> {
         if (!(error instanceof UIAssertionError)) {

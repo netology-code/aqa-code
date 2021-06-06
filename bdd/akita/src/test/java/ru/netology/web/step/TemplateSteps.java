@@ -1,7 +1,7 @@
 package ru.netology.web.step;
 
 import cucumber.api.java.ru.Пусть;
-import lombok.val;
+import lombok.var;
 import ru.alfabank.alfatest.cucumber.api.AkitaScenario;
 import ru.netology.web.data.DataHelper;
 import ru.netology.web.page.LoginPage;
@@ -16,16 +16,16 @@ public class TemplateSteps {
 
   @Пусть("^пользователь залогинен с именем \"([^\"]*)\" и паролем \"([^\"]*)\"$")
   public void loginWithNameAndPassword(String login, String password) {
-    val loginUrl = loadProperty("loginUrl");
+    var loginUrl = loadProperty("loginUrl");
     open(loginUrl);
 
     scenario.setCurrentPage(page(LoginPage.class));
-    val loginPage = (LoginPage) scenario.getCurrentPage().appeared();
-    val authInfo = new DataHelper.AuthInfo(login, password);
+    var loginPage = (LoginPage) scenario.getCurrentPage().appeared();
+    var authInfo = new DataHelper.AuthInfo(login, password);
     scenario.setCurrentPage(loginPage.validLogin(authInfo));
 
-    val verificationPage = (VerificationPage) scenario.getCurrentPage().appeared();
-    val verificationCode = DataHelper.getVerificationCodeFor(authInfo);
+    var verificationPage = (VerificationPage) scenario.getCurrentPage().appeared();
+    var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
     scenario.setCurrentPage(verificationPage.validVerify(verificationCode));
 
     scenario.getCurrentPage().appeared();
