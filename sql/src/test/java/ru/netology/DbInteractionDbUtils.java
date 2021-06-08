@@ -1,6 +1,7 @@
 package ru.netology;
 
 import com.github.javafaker.Faker;
+import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -10,11 +11,11 @@ import org.junit.jupiter.api.Test;
 import ru.netology.mode.User;
 
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class DbInteractionDbUtils {
     @BeforeEach
-    void setUp() throws SQLException {
+    @SneakyThrows
+    void setUp() {
         var faker = new Faker();
         var runner = new QueryRunner();
         var dataSQL = "INSERT INTO users(login, password) VALUES (?, ?);";
@@ -32,7 +33,8 @@ public class DbInteractionDbUtils {
     }
 
     @Test
-    void stubTest() throws SQLException {
+    @SneakyThrows
+    void stubTest() {
         var countSQL = "SELECT COUNT(*) FROM users;";
         var usersSQL = "SELECT * FROM users;";
         var runner = new QueryRunner();

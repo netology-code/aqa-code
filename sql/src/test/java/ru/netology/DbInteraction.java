@@ -1,15 +1,16 @@
 package ru.netology;
 
 import com.github.javafaker.Faker;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class DbInteraction {
   @BeforeEach
-  void setUp() throws SQLException {
+  @SneakyThrows
+  void setUp() {
     var faker = new Faker();
     var dataSQL = "INSERT INTO users(login, password) VALUES (?, ?);";
 
@@ -29,7 +30,8 @@ public class DbInteraction {
   }
 
   @Test
-  void stubTest() throws SQLException {
+  @SneakyThrows
+  void stubTest() {
     var countSQL = "SELECT COUNT(*) FROM users;";
     var cardsSQL = "SELECT id, number, balance_in_kopecks FROM cards WHERE user_id = ?;";
 
