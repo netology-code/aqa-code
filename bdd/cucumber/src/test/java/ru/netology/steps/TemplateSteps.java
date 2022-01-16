@@ -25,7 +25,7 @@ public class TemplateSteps {
         verificationPage = loginPage.validLogin(login, password);
     }
 
-    @И("пользователь вводит корректный проверочный код 'из смс' {string}")
+    @И("пользователь вводит проверочный код 'из смс' {string}")
     public void setValidCode(String verificationCode) {
         dashboardPage = verificationPage.validVerify(verificationCode);
     }
