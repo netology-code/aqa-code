@@ -18,7 +18,7 @@
     </appender>
 
     <!--'additivity' flag is important! Without it logback will double-log log messages-->
-    <logger name="binary_data_logger" level="TRACE" additivity="false">
+    <logger name="binary_data_logger" level="DEBUG" additivity="false">
         <appender-ref ref="RP"/>
     </logger>
 
@@ -26,7 +26,7 @@
     <logger name="com.epam.reportportal.utils" level="WARN"/>
 
     <!-- By default, the level of the root level is set to DEBUG -->
-    <root level="TRACE">
+    <root level="DEBUG">
         <appender-ref ref="RP"/>
         <appender-ref ref="STDOUT"/>
     </root>
