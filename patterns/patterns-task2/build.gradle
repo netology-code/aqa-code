@@ -19,7 +19,6 @@ dependencies {
     testImplementation 'com.codeborne:selenide:6.12.2'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'io.rest-assured:rest-assured:4.3.3'
-    testImplementation 'com.google.code.gson:gson:2.8.6'
 }
 
 test {
