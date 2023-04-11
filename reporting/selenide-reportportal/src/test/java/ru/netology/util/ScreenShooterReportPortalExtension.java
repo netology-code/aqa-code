@@ -15,6 +15,7 @@ import java.util.Optional;
 
 import static com.codeborne.selenide.Selenide.screenshot;
 import static com.codeborne.selenide.WebDriverRunner.driver;
+import static ru.netology.util.LoggingUtils.log;
 
 /**
  * Use this class to automatically take screenshots in case of ANY errors in tests (not only Selenide errors) and send them to ReportPortal.
@@ -22,43 +23,41 @@ import static com.codeborne.selenide.WebDriverRunner.driver;
  * @see com.codeborne.selenide.junit5.ScreenShooterExtension
  */
 public class ScreenShooterReportPortalExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
-  private static final Logger log = LoggerFactory.getLogger(ScreenShooterReportPortalExtension.class);
+    private static final Logger log = LoggerFactory.getLogger(ScreenShooterReportPortalExtension.class);
 
-  private final boolean captureSuccessfulTests;
+    private final boolean captureSuccessfulTests;
 
-  public ScreenShooterReportPortalExtension() {
-    this(false);
-  }
-
-  public ScreenShooterReportPortalExtension(final boolean captureSuccessfulTests) {
-    this.captureSuccessfulTests = captureSuccessfulTests;
-  }
-
-  @Override
-  public void beforeTestExecution(final ExtensionContext context) {
-    final Optional<Class<?>> testClass = context.getTestClass();
-    final String className = testClass.map(Class::getName).orElse("EmptyClass");
-
-    final Optional<Method> testMethod = context.getTestMethod();
-    final String methodName = testMethod.map(Method::getName).orElse("emptyMethod");
-
-    Screenshots.startContext(className, methodName);
-  }
-
-  @Override
-  public void afterTestExecution(final ExtensionContext context) {
-    if (captureSuccessfulTests) {
-      log.info(screenshot(context.getTestMethod().toString()));
-    } else {
-      context.getExecutionException().ifPresent(error -> {
-        if (!(error instanceof UIAssertionError)) {
-          File screenshot = ScreenShotLaboratory.getInstance().takeScreenShotAsFile(driver());
-          if (screenshot != null) {
-            LoggingUtils.log(screenshot, "Attached screenshot");
-          }
-        }
-      });
+    public ScreenShooterReportPortalExtension() {
+        this(false);
     }
-    Screenshots.finishContext();
-  }
+
+    public ScreenShooterReportPortalExtension(final boolean captureSuccessfulTests) {
+        this.captureSuccessfulTests = captureSuccessfulTests;
+    }
+
+    @Override
+    public void beforeTestExecution(final ExtensionContext context) {
+        final Optional<Class<?>> testClass = context.getTestClass();
+        final String className = testClass.map(Class::getName).orElse("EmptyClass");
+
+        final Optional<Method> testMethod = context.getTestMethod();
+        final String methodName = testMethod.map(Method::getName).orElse("emptyMethod");
+
+        Screenshots.startContext(className, methodName);
+    }
+
+    @Override
+    public void afterTestExecution(final ExtensionContext context) {
+        if (captureSuccessfulTests) {
+            log.info(screenshot(context.getTestMethod().toString()));
+        } else {
+            context.getExecutionException().ifPresent(error -> {
+                File screenshot = ScreenShotLaboratory.getInstance().takeScreenShotAsFile(driver());
+                if (screenshot != null) {
+                    LoggingUtils.log(screenshot, "Attached screenshot");
+                }
+            });
+        }
+        Screenshots.finishContext();
+    }
 }
