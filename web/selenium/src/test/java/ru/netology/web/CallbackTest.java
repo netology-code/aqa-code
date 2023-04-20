@@ -18,12 +18,17 @@ class CallbackTest {
 
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
     void setUp() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999");
     }
 
     @AfterEach
@@ -34,7 +39,6 @@ class CallbackTest {
 
     @Test
     void shouldTestV1() {
-        driver.get("http://localhost:9999");
         List<WebElement> elements = driver.findElements(By.className("input__control"));
         elements.get(0).sendKeys("Василий");
         elements.get(1).sendKeys("+79270000000");
@@ -46,7 +50,6 @@ class CallbackTest {
 
     @Test
     void shouldTestV2() {
-        driver.get("http://localhost:9999");
         WebElement form = driver.findElement(By.cssSelector("[data-test-id=callback-form]"));
         form.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Василий");
         form.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79270000000");
