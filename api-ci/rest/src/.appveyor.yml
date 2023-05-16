@@ -4,7 +4,7 @@ stack: jdk 11  # версия JDK
 
 branches:
   only:
-    - master  # ветка git
+    - main  # ветка git
 
 build: off  # будем использовать свой скрипт сборки
 
@@ -13,3 +13,4 @@ install:
   - java -jar ./artifacts/app-mbank.jar &
   - chmod +x gradlew
 build_script:
+  - ./gradlew test --info  # команда для запуска тестов
