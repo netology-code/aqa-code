@@ -6,6 +6,8 @@ group 'ru.netology'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 11
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
 
 repositories {
     mavenCentral()
