@@ -20,6 +20,7 @@ dependencies {
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
     testImplementation 'com.codeborne:selenide:6.17.2'
+    testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.3'
 }
 
 test {

@@ -1,9 +1,10 @@
-version: '3.7'
 services:
   mysql:
-    image: mysql:8.0
+    image: mysql:8.0.34
     ports:
       - '3306:3306'
+    volumes:
+      - ./data:/var/lib/mysql
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=app
