@@ -1,12 +1,13 @@
 plugins {
     id 'java'
-    id "io.freefair.lombok" version "8.2.2"
 }
 
 group 'ru.netology'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 11
+java {
+    sourceCompatibility = 11
+}
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
@@ -15,12 +16,14 @@ repositories {
 }
 
 dependencies {
-    testImplementation "org.junit.jupiter:junit-jupiter:5.8.2"
-    testImplementation 'org.junit.vintage:junit-vintage-engine:5.8.2'
-    testImplementation 'com.codeborne:selenide:6.17.2'
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.2'
+    testImplementation 'com.codeborne:selenide:6.19.1'
     testImplementation 'io.cucumber:cucumber-java:7.1.0'
     testImplementation 'io.cucumber:cucumber-junit:7.1.0'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testCompileOnly 'org.projectlombok:lombok:1.18.36'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
     testImplementation 'org.slf4j:slf4j-simple:1.7.32'
 }
 
